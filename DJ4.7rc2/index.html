@@ -1,0 +1,1930 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>	
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+				<link type="text/css" rel="stylesheet" href="styles/reset.css"
+			media="all" />
+			<link type="text/css" rel="stylesheet" href="styles/view.css"
+			media="all" />
+			<link type="text/css" rel="stylesheet" href="styles/print.css"
+			media="print" />
+							<script type="text/javascript" src="js/jquery.js"></script>
+				<script type="text/javascript" src="js/highcharts.js"></script>
+			</head>
+<body style="min-width: 960px">
+<div id="content">
+<div id="header">
+<h1>Plan (Summary) 12/6/2019</h1>
+<p class="comment bottom">Project: Sandbox Testplans<br />By Gary Lee, 12/6/2019 3:16 AM</p>
+</div>
+<h1 class="main">
+	<span>Plan: Curse of Davy Jones_2 DEC 2019_4.7.0rc2</span>
+</h1>
+
+		
+<script type="text/javascript">
+$(function () {
+	$(document).ready(function() {
+		Highcharts.setOptions({
+			chart: {
+				style: {
+					fontSize: '14px',
+					fontFamily: 'Barlow, -apple-system, BlinkMacSystemFont, system-ui, sans-serif;'
+				}
+			},
+			title: {
+				useHTML: true,
+				style: {
+					fontSize: '15px'
+				}
+			},
+			credits: {
+				enabled: false
+			},
+			xAxis: {
+				gridLineColor: '#d2e2ed',
+				gridLineWidth: 0,
+				lineWidth: 1,
+				lineColor: '#C0C0C0',
+				labels: {
+					useHTML: true,
+					style: {
+						fontSize: '14px'
+					}
+				}
+			},
+			yAxis: {
+				gridLineColor: '#d2e2ed',
+				gridLineWidth: 1,
+				lineWidth: 1,
+				lineColor: '#C0C0C0',
+				labels: {
+					useHTML: true,
+					style: {
+						fontSize: '14px'
+					}
+				}
+			},
+			plotOptions: {
+				series: {
+					animation: false,
+					shadow: false,
+					lineWidth: 2,
+					marker: {
+						enabled: false
+					},
+					events: {
+						legendItemClick: function () 
+						{
+							return false; 
+						}
+					},
+					states: {
+						hover: {
+							enabled: false
+						}
+					}
+				},
+				pie: {
+					showInLegend: true,
+					dataLabels: {
+						enabled: true,
+						color: '#000000',
+						connectorColor: '#000000',
+						distance: 20,
+						formatter: function() {
+							return Math.round(this.percentage) +' %';
+						}
+					},
+					point: {
+						events: {
+							legendItemClick: function () 
+							{
+								return false; 
+							}
+						}
+					},
+					states: {
+						hover: {
+							enabled: false
+						}
+					}
+				}
+			},
+			tooltip: {
+				enabled: true,
+				useHTML: true,
+				style: {
+					padding: '4px',
+					fontSize: '14px'
+				}
+			},
+			legend: {
+				useHTML: true,
+				itemStyle: {
+					fontSize: '14px',
+					cursor: 'default'
+				}
+			}
+		});
+	});
+});
+</script>
+
+
+																																				
+	
+
+<div class="chartContainer" style="height: 230px; width: 900px; margin-bottom: 1em">
+	<div class="chartColumn" style="width: 230px">
+		<div id="statusChart" style="height: 230px; width: 230px"></div>
+	</div>
+		<div class="chartColumn" style="width: 350px">
+		<div style="display: table; margin: 0 auto; padding: 0 2em">
+			
+
+
+	<div style="padding-top: 1.5em">
+							<div class="legendEntry" style="height: auto">
+			<div class="icon">
+				<div style="width: 100%; background: #3cb850"></div>
+			</div>
+			<div style="margin-left: 35px">
+				<div class="title">34 Passed</div>
+				<div class="description">94% set to Passed</div>
+			</div>
+		</div>
+							<div class="legendEntry" style="height: auto">
+			<div class="icon">
+				<div style="width: 100%; background: #595959"></div>
+			</div>
+			<div style="margin-left: 35px">
+				<div class="title">0 Blocked</div>
+				<div class="description">0% set to Blocked</div>
+			</div>
+		</div>
+							<div class="legendEntry" style="height: auto">
+			<div class="icon">
+				<div style="width: 100%; background: #fcc200"></div>
+			</div>
+			<div style="margin-left: 35px">
+				<div class="title">0 Retest</div>
+				<div class="description">0% set to Retest</div>
+			</div>
+		</div>
+							<div class="legendEntry" style="height: auto">
+			<div class="icon">
+				<div style="width: 100%; background: #e40046"></div>
+			</div>
+			<div style="margin-left: 35px">
+				<div class="title">0 Failed</div>
+				<div class="description">0% set to Failed</div>
+			</div>
+		</div>
+	</div>		</div>
+	</div>
+	<div class="chartColumn" style="width: 120px">
+		<div class="percentContainer">
+		<div class="percent" style="padding-top: 4em">
+		<div class="title">94%</div>
+		<div class="description">passed</div>
+	</div>
+			<div class="percentNote secondary" style="line-height: 130%">
+			2 / 36 untested (6%).		</div>
+	</div>	</div>
+</div>
+
+<script type="text/javascript">
+var chart_status;
+
+$(function() {
+	$(document).ready(function() {
+		chart_status = new Highcharts.Chart({
+			chart: {
+				renderTo: 'statusChart',
+				margin: [0, 0, 15, 0]
+			},
+			tooltip: {
+								formatter: function() {
+					return '<b>'+ this.point.name +'</b><br/>'+
+						this.y + ' (' +
+						Math.round(this.percentage) + '%)';
+				}
+			},
+			title: {
+				text: null,
+				enabled: false
+			},
+			legend: {
+				enabled: false
+			},
+			plotOptions: {
+				pie: {
+					dataLabels: {
+						enabled: false
+					}
+				}
+			},
+			series: [{
+				type: 'pie',
+				data: [
+																							{
+						name: "Passed",
+						y: 34,
+						color: '#3cb850'
+					},
+																								{
+						name: "Blocked",
+						y: 0,
+						color: '#595959'
+					},
+																								{
+						name: "Untested",
+						y: 2,
+						color: '#979797'
+					},
+																								{
+						name: "Retest",
+						y: 0,
+						color: '#fcc200'
+					},
+																								{
+						name: "Failed",
+						y: 0,
+						color: '#e40046'
+					},
+																																																																																																																			]
+			}]
+		});
+	});
+});
+</script>
+
+
+<div style="margin: 1.5em 0">
+<table class="grid">
+	<colgroup>
+		<col></col>
+		<col class="comment"></col>
+	</colgroup>
+		<tr class="odd">
+		<td>Milestone</td>
+		<td class="right">
+							<a target="_top" href="https://sandboxvr.testrail.io/index.php?/milestones/view/30">v4.7.0rc2</a>
+					</td>
+	</tr>
+			<tr class="even">
+		<td>Created On</td>
+		<td class="right">
+			12/2/2019		</td>
+	</tr>
+		<tr class="odd">
+		<td>Completed</td>
+				<td class="right">No</td>
+			</tr>
+	</table></div>
+
+<h1><img class="right noPrint" src="images/report-assets/help.svg" width="16" height="16" alt="" title="Shows the test runs associated with the test plan." />Test Runs</h1>
+
+																									
+	<div class="dateSection ">
+		<span class="title">
+			Experience Test Cases (Generic) (1) 
+		</span>
+	</div>
+	<table class="grid" style="margin-bottom: 2em">
+		<colgroup>
+			<col class="icon"></col>
+			<col></col>
+			<col class="percent"></col>
+		</colgroup>
+										<tr class="odd" id="run-23">
+				<td class="icon">
+					<img src="images/report-assets/run16.svg"
+						width="16" height="16" alt="" />
+				</td>
+				<td>
+						
+						<a target="_top" href="https://sandboxvr.testrail.io/index.php?/runs/view/23">Experience Test Cases (Generic)</a>
+								
+														</td>
+				<td class="secondary percent ">
+						<strong>94%</strong>	
+				</td>
+			</tr>
+			</table>
+				<div class="dateSection ">
+		<span class="title">
+			Curse Of Davy Jones (DJ) (1) 
+		</span>
+	</div>
+	<table class="grid" style="margin-bottom: 2em">
+		<colgroup>
+			<col class="icon"></col>
+			<col></col>
+			<col class="percent"></col>
+		</colgroup>
+										<tr class="odd" id="run-27">
+				<td class="icon">
+					<img src="images/report-assets/run16.svg"
+						width="16" height="16" alt="" />
+				</td>
+				<td>
+						
+						<a target="_top" href="https://sandboxvr.testrail.io/index.php?/runs/view/27">Curse Of Davy Jones (DJ)</a>
+								
+														</td>
+				<td class="secondary percent percentSmall">
+						<strong>100%</strong>	
+				</td>
+			</tr>
+			</table>
+			
+	<h1><img class="right noPrint" src="images/report-assets/help.svg" width="16" height="16" alt="" title="Shows the activity (test results and comments) for the test runs of the test plan." />Activity</h1>
+			
+
+
+
+
+<div class="chartContainer" style="height: 230px; width: 925px; margin-bottom: 1em">
+	<div class="chartColumn" style="margin-right: 25px">
+		<div id="activityChart" style="height: 230px; width: 600px; overflow: hidden">
+		</div>
+	</div>
+	<div class="chartColumn" style="width: 300px">
+		<div style="display: table; margin: 0 auto; padding: 0 2em">
+		
+
+	<div class="legendHeader">
+12/2/2019 &ndash; 12/6/2019:</div>
+<div>
+							<div class="legendEntry" style="height: auto">
+			<div class="icon">
+				<div style="width: 100%; background: #3cb850"></div>
+			</div>
+			<div style="margin-left: 35px">
+				<div class="title">52 Passed</div>
+				<div class="description">93% set to Passed</div>
+			</div>
+		</div>
+							<div class="legendEntry" style="height: auto">
+			<div class="icon">
+				<div style="width: 100%; background: #595959"></div>
+			</div>
+			<div style="margin-left: 35px">
+				<div class="title">0 Blocked</div>
+				<div class="description">0% set to Blocked</div>
+			</div>
+		</div>
+							<div class="legendEntry" style="height: auto">
+			<div class="icon">
+				<div style="width: 100%; background: #fcc200"></div>
+			</div>
+			<div style="margin-left: 35px">
+				<div class="title">2 Retest</div>
+				<div class="description">4% set to Retest</div>
+			</div>
+		</div>
+							<div class="legendEntry" style="height: auto">
+			<div class="icon">
+				<div style="width: 100%; background: #e40046"></div>
+			</div>
+			<div style="margin-left: 35px">
+				<div class="title">2 Failed</div>
+				<div class="description">4% set to Failed</div>
+			</div>
+		</div>
+	</div>
+		</div>
+	</div>
+	<div style="clear: both"></div>
+</div>
+
+
+<script type="text/javascript">
+var chart_activity;
+
+$(function () {
+	$(document).ready(function() {
+		chart_activity = new Highcharts.Chart({
+			chart: {
+				renderTo: 'activityChart',
+				type: 'line'
+			},
+			xAxis: {
+				categories: ["12\/2","12\/3","12\/4","12\/5","12\/6"],
+				labels: {
+					step: 0,
+					overflow: 'justify'
+				}
+			},
+			yAxis: {
+				min: 0,
+				title: {
+					text: ''
+				},
+								tickPixelInterval: 25,
+								plotLines: [{
+					value: 0,
+					width: 1,
+					color: '#808080'
+				}],
+				allowDecimals: false
+			},
+			title: {
+				text: null
+			},
+			tooltip: {
+				formatter: function() {
+					return '<strong>'+ this.series.name +'</strong><br/>'+
+						this.x + ': ' + this.y;
+				}
+			},
+			legend: {
+				enabled: false
+			},
+			series: [
+																																						{
+					name: "Passed",
+					color: '#3cb850',
+					data: [4,2,45,0,1]					}
+																																												,
+										{
+					name: "Blocked",
+					color: '#595959',
+					data: [0,0,0,0,0]					}
+																																												,
+										{
+					name: "Retest",
+					color: '#fcc200',
+					data: [0,0,1,0,1]					}
+																																												,
+										{
+					name: "Failed",
+					color: '#e40046',
+					data: [0,1,1,0,0]					}
+																	]
+		});
+	});
+});
+</script>
+				
+																																																													
+	<div class="dateSection" style="margin-top: 1em">
+		<span class="title">Friday, December 06, 2019</span>
+	</div>
+		<table class="grid">
+		<colgroup>
+			<col style="width: 90px"></col>
+			<col></col>
+			<col class="comment"></col>
+		</colgroup>
+																				<tr class="odd">
+				<td class="box">
+																								<span class="statusBox" style="background: #338a41; color: #ffffff">Passed</span>
+															</td>
+				<td>
+											<a target="_top" href="https://sandboxvr.testrail.io/index.php?/tests/view/1204/#testChange-360">DGE Video Capture</a>
+														</td>
+				<td class="right">
+					<span class="secondary">Tested by Gary L.</span>
+				</td>
+			</tr>
+																				<tr class="even">
+				<td class="box">
+																								<span class="statusBox" style="background: #b99109; color: #ffffff">Retest</span>
+															</td>
+				<td>
+											<a target="_top" href="https://sandboxvr.testrail.io/index.php?/tests/view/1204/#testChange-359">DGE Video Capture</a>
+														</td>
+				<td class="right">
+					<span class="secondary">Marked by Gary L.</span>
+				</td>
+			</tr>
+			</table>
+		
+	<div class="dateSection" style="">
+		<span class="title">Wednesday, December 04, 2019</span>
+	</div>
+		<table class="grid">
+		<colgroup>
+			<col style="width: 90px"></col>
+			<col></col>
+			<col class="comment"></col>
+		</colgroup>
+																				<tr class="odd">
+				<td class="box">
+																								<span class="statusBox" style="background: #a9093a; color: #ffffff">Failed</span>
+															</td>
+				<td>
+											<a target="_top" href="https://sandboxvr.testrail.io/index.php?/tests/view/1204/#testChange-351">DGE Video Capture</a>
+														</td>
+				<td class="right">
+					<span class="secondary">Tested by Ashley C.</span>
+				</td>
+			</tr>
+																				<tr class="even">
+				<td class="box">
+																								<span class="statusBox" style="background: #338a41; color: #ffffff">Passed</span>
+															</td>
+				<td>
+											<a target="_top" href="https://sandboxvr.testrail.io/index.php?/tests/view/1205/#testChange-350">Players dropping out / dummy players</a>
+														</td>
+				<td class="right">
+					<span class="secondary">Tested by Ashley C.</span>
+				</td>
+			</tr>
+																				<tr class="odd">
+				<td class="box">
+																								<span class="statusBox" style="background: #338a41; color: #ffffff">Passed</span>
+															</td>
+				<td>
+											<a target="_top" href="https://sandboxvr.testrail.io/index.php?/tests/view/1238/#testChange-349">Improve props snap logic when hand lost tracking (#129)</a>
+														</td>
+				<td class="right">
+					<span class="secondary">Tested by Ashley C.</span>
+				</td>
+			</tr>
+																				<tr class="even">
+				<td class="box">
+																								<span class="statusBox" style="background: #338a41; color: #ffffff">Passed</span>
+															</td>
+				<td>
+											<a target="_top" href="https://sandboxvr.testrail.io/index.php?/tests/view/1237/#testChange-348">HandAttach rotation fix (#125)</a>
+														</td>
+				<td class="right">
+					<span class="secondary">Tested by Ashley C.</span>
+				</td>
+			</tr>
+																				<tr class="odd">
+				<td class="box">
+																								<span class="statusBox" style="background: #338a41; color: #ffffff">Passed</span>
+															</td>
+				<td>
+											<a target="_top" href="https://sandboxvr.testrail.io/index.php?/tests/view/1236/#testChange-347">Replace GloInputDirectInput with SandboxControllerInput for &quot;DirectInput&quot; type (#124)</a>
+														</td>
+				<td class="right">
+					<span class="secondary">Tested by Ashley C.</span>
+				</td>
+			</tr>
+																				<tr class="even">
+				<td class="box">
+																								<span class="statusBox" style="background: #338a41; color: #ffffff">Passed</span>
+															</td>
+				<td>
+											<a target="_top" href="https://sandboxvr.testrail.io/index.php?/tests/view/1204/#testChange-345">DGE Video Capture</a>
+														</td>
+				<td class="right">
+					<span class="secondary">Tested by Ashley C.</span>
+				</td>
+			</tr>
+																				<tr class="odd">
+				<td class="box">
+																								<span class="statusBox" style="background: #338a41; color: #ffffff">Passed</span>
+															</td>
+				<td>
+											<a target="_top" href="https://sandboxvr.testrail.io/index.php?/tests/view/1210/#testChange-346">Backup clips</a>
+														</td>
+				<td class="right">
+					<span class="secondary">Tested by Ashley C.</span>
+				</td>
+			</tr>
+																				<tr class="even">
+				<td class="box">
+																								<span class="statusBox" style="background: #338a41; color: #ffffff">Passed</span>
+															</td>
+				<td>
+											<a target="_top" href="https://sandboxvr.testrail.io/index.php?/tests/view/1231/#testChange-344">Animation</a>
+														</td>
+				<td class="right">
+					<span class="secondary">Tested by Ashley C.</span>
+				</td>
+			</tr>
+																				<tr class="odd">
+				<td class="box">
+																								<span class="statusBox" style="background: #338a41; color: #ffffff">Passed</span>
+															</td>
+				<td>
+											<a target="_top" href="https://sandboxvr.testrail.io/index.php?/tests/view/1230/#testChange-343">Hot Keys Function</a>
+														</td>
+				<td class="right">
+					<span class="secondary">Tested by Ashley C.</span>
+				</td>
+			</tr>
+																				<tr class="even">
+				<td class="box">
+																								<span class="statusBox" style="background: #338a41; color: #ffffff">Passed</span>
+															</td>
+				<td>
+											<a target="_top" href="https://sandboxvr.testrail.io/index.php?/tests/view/1232/#testChange-342">Overall UI clarity</a>
+														</td>
+				<td class="right">
+					<span class="secondary">Tested by Ashley C.</span>
+				</td>
+			</tr>
+																				<tr class="odd">
+				<td class="box">
+																								<span class="statusBox" style="background: #338a41; color: #ffffff">Passed</span>
+															</td>
+				<td>
+											<a target="_top" href="https://sandboxvr.testrail.io/index.php?/tests/view/1229/#testChange-341">Graphics</a>
+														</td>
+				<td class="right">
+					<span class="secondary">Tested by Ashley C.</span>
+				</td>
+			</tr>
+																				<tr class="even">
+				<td class="box">
+																								<span class="statusBox" style="background: #338a41; color: #ffffff">Passed</span>
+															</td>
+				<td>
+											<a target="_top" href="https://sandboxvr.testrail.io/index.php?/tests/view/1228/#testChange-340">Levels</a>
+														</td>
+				<td class="right">
+					<span class="secondary">Tested by Ashley C.</span>
+				</td>
+			</tr>
+																				<tr class="odd">
+				<td class="box">
+																								<span class="statusBox" style="background: #338a41; color: #ffffff">Passed</span>
+															</td>
+				<td>
+											<a target="_top" href="https://sandboxvr.testrail.io/index.php?/tests/view/1227/#testChange-339">Score</a>
+														</td>
+				<td class="right">
+					<span class="secondary">Tested by Ashley C.</span>
+				</td>
+			</tr>
+																				<tr class="even">
+				<td class="box">
+																								<span class="statusBox" style="background: #338a41; color: #ffffff">Passed</span>
+															</td>
+				<td>
+											<a target="_top" href="https://sandboxvr.testrail.io/index.php?/tests/view/1211/#testChange-338">Play area boundary</a>
+														</td>
+				<td class="right">
+					<span class="secondary">Tested by Ashley C.</span>
+				</td>
+			</tr>
+																				<tr class="odd">
+				<td class="box">
+																								<span class="statusBox" style="background: #338a41; color: #ffffff">Passed</span>
+															</td>
+				<td>
+											<a target="_top" href="https://sandboxvr.testrail.io/index.php?/tests/view/1223/#testChange-337">Localization</a>
+														</td>
+				<td class="right">
+					<span class="secondary">Tested by Ashley C.</span>
+				</td>
+			</tr>
+																				<tr class="even">
+				<td class="box">
+																								<span class="statusBox" style="background: #338a41; color: #ffffff">Passed</span>
+															</td>
+				<td>
+											<a target="_top" href="https://sandboxvr.testrail.io/index.php?/tests/view/1219/#testChange-336">User Interface</a>
+														</td>
+				<td class="right">
+					<span class="secondary">Tested by Ashley C.</span>
+				</td>
+			</tr>
+																				<tr class="odd">
+				<td class="box">
+																								<span class="statusBox" style="background: #338a41; color: #ffffff">Passed</span>
+															</td>
+				<td>
+											<a target="_top" href="https://sandboxvr.testrail.io/index.php?/tests/view/1226/#testChange-335">Game time mechanics</a>
+														</td>
+				<td class="right">
+					<span class="secondary">Tested by Gary L.</span>
+				</td>
+			</tr>
+																				<tr class="even">
+				<td class="box">
+																								<span class="statusBox" style="background: #338a41; color: #ffffff">Passed</span>
+															</td>
+				<td>
+											<a target="_top" href="https://sandboxvr.testrail.io/index.php?/tests/view/1210/#testChange-334">Backup clips</a>
+														</td>
+				<td class="right">
+					<span class="secondary">Tested by Gary L.</span>
+				</td>
+			</tr>
+																				<tr class="odd">
+				<td class="box">
+																								<span class="statusBox" style="background: #338a41; color: #ffffff">Passed</span>
+															</td>
+				<td>
+											<a target="_top" href="https://sandboxvr.testrail.io/index.php?/tests/view/1204/#testChange-333">DGE Video Capture</a>
+														</td>
+				<td class="right">
+					<span class="secondary">Tested by Gary L.</span>
+				</td>
+			</tr>
+																				<tr class="even">
+				<td class="box">
+																								<span class="statusBox" style="background: #338a41; color: #ffffff">Passed</span>
+															</td>
+				<td>
+											<a target="_top" href="https://sandboxvr.testrail.io/index.php?/tests/view/1231/#testChange-332">Animation</a>
+														</td>
+				<td class="right">
+					<span class="secondary">Tested by Gary L.</span>
+				</td>
+			</tr>
+																				<tr class="odd">
+				<td class="box">
+																								<span class="statusBox" style="background: #338a41; color: #ffffff">Passed</span>
+															</td>
+				<td>
+											<a target="_top" href="https://sandboxvr.testrail.io/index.php?/tests/view/1230/#testChange-331">Hot Keys Function</a>
+														</td>
+				<td class="right">
+					<span class="secondary">Tested by Gary L.</span>
+				</td>
+			</tr>
+																				<tr class="even">
+				<td class="box">
+																								<span class="statusBox" style="background: #338a41; color: #ffffff">Passed</span>
+															</td>
+				<td>
+											<a target="_top" href="https://sandboxvr.testrail.io/index.php?/tests/view/1232/#testChange-330">Overall UI clarity</a>
+														</td>
+				<td class="right">
+					<span class="secondary">Tested by Gary L.</span>
+				</td>
+			</tr>
+																				<tr class="odd">
+				<td class="box">
+																								<span class="statusBox" style="background: #338a41; color: #ffffff">Passed</span>
+															</td>
+				<td>
+											<a target="_top" href="https://sandboxvr.testrail.io/index.php?/tests/view/1229/#testChange-329">Graphics</a>
+														</td>
+				<td class="right">
+					<span class="secondary">Tested by Gary L.</span>
+				</td>
+			</tr>
+																				<tr class="even">
+				<td class="box">
+																								<span class="statusBox" style="background: #338a41; color: #ffffff">Passed</span>
+															</td>
+				<td>
+											<a target="_top" href="https://sandboxvr.testrail.io/index.php?/tests/view/1228/#testChange-328">Levels</a>
+														</td>
+				<td class="right">
+					<span class="secondary">Tested by Gary L.</span>
+				</td>
+			</tr>
+																				<tr class="odd">
+				<td class="box">
+																								<span class="statusBox" style="background: #338a41; color: #ffffff">Passed</span>
+															</td>
+				<td>
+											<a target="_top" href="https://sandboxvr.testrail.io/index.php?/tests/view/1227/#testChange-327">Score</a>
+														</td>
+				<td class="right">
+					<span class="secondary">Tested by Gary L.</span>
+				</td>
+			</tr>
+																				<tr class="even">
+				<td class="box">
+																								<span class="statusBox" style="background: #338a41; color: #ffffff">Passed</span>
+															</td>
+				<td>
+											<a target="_top" href="https://sandboxvr.testrail.io/index.php?/tests/view/1214/#testChange-326">Timeout failsafe</a>
+														</td>
+				<td class="right">
+					<span class="secondary">Tested by Gary L.</span>
+				</td>
+			</tr>
+																				<tr class="odd">
+				<td class="box">
+																								<span class="statusBox" style="background: #338a41; color: #ffffff">Passed</span>
+															</td>
+				<td>
+											<a target="_top" href="https://sandboxvr.testrail.io/index.php?/tests/view/1211/#testChange-325">Play area boundary</a>
+														</td>
+				<td class="right">
+					<span class="secondary">Tested by Gary L.</span>
+				</td>
+			</tr>
+																				<tr class="even">
+				<td class="box">
+																								<span class="statusBox" style="background: #338a41; color: #ffffff">Passed</span>
+															</td>
+				<td>
+											<a target="_top" href="https://sandboxvr.testrail.io/index.php?/tests/view/1223/#testChange-324">Localization</a>
+														</td>
+				<td class="right">
+					<span class="secondary">Tested by Gary L.</span>
+				</td>
+			</tr>
+																				<tr class="odd">
+				<td class="box">
+																								<span class="statusBox" style="background: #338a41; color: #ffffff">Passed</span>
+															</td>
+				<td>
+											<a target="_top" href="https://sandboxvr.testrail.io/index.php?/tests/view/1219/#testChange-323">User Interface</a>
+														</td>
+				<td class="right">
+					<span class="secondary">Tested by Gary L.</span>
+				</td>
+			</tr>
+																				<tr class="even">
+				<td class="box">
+																								<span class="statusBox" style="background: #338a41; color: #ffffff">Passed</span>
+															</td>
+				<td>
+											<a target="_top" href="https://sandboxvr.testrail.io/index.php?/tests/view/1205/#testChange-322">Players dropping out / dummy players</a>
+														</td>
+				<td class="right">
+					<span class="secondary">Tested by Gary L.</span>
+				</td>
+			</tr>
+																				<tr class="odd">
+				<td class="box">
+																								<span class="statusBox" style="background: #338a41; color: #ffffff">Passed</span>
+															</td>
+				<td>
+											<a target="_top" href="https://sandboxvr.testrail.io/index.php?/tests/view/1238/#testChange-321">Improve props snap logic when hand lost tracking (#129)</a>
+														</td>
+				<td class="right">
+					<span class="secondary">Tested by Gary L.</span>
+				</td>
+			</tr>
+																				<tr class="even">
+				<td class="box">
+																								<span class="statusBox" style="background: #338a41; color: #ffffff">Passed</span>
+															</td>
+				<td>
+											<a target="_top" href="https://sandboxvr.testrail.io/index.php?/tests/view/1237/#testChange-320">HandAttach rotation fix (#125)</a>
+														</td>
+				<td class="right">
+					<span class="secondary">Tested by Gary L.</span>
+				</td>
+			</tr>
+																				<tr class="odd">
+				<td class="box">
+																								<span class="statusBox" style="background: #338a41; color: #ffffff">Passed</span>
+															</td>
+				<td>
+											<a target="_top" href="https://sandboxvr.testrail.io/index.php?/tests/view/1236/#testChange-319">Replace GloInputDirectInput with SandboxControllerInput for &quot;DirectInput&quot; type (#124)</a>
+														</td>
+				<td class="right">
+					<span class="secondary">Tested by Gary L.</span>
+				</td>
+			</tr>
+																				<tr class="even">
+				<td class="box">
+																								<span class="statusBox" style="background: #338a41; color: #ffffff">Passed</span>
+															</td>
+				<td>
+											<a target="_top" href="https://sandboxvr.testrail.io/index.php?/tests/view/1207/#testChange-318">Player comfort level</a>
+														</td>
+				<td class="right">
+					<span class="secondary">Tested by Ashley C.</span>
+				</td>
+			</tr>
+																				<tr class="odd">
+				<td class="box">
+																								<span class="statusBox" style="background: #338a41; color: #ffffff">Passed</span>
+															</td>
+				<td>
+											<a target="_top" href="https://sandboxvr.testrail.io/index.php?/tests/view/1203/#testChange-317">Performance Measurement</a>
+														</td>
+				<td class="right">
+					<span class="secondary">Tested by Ashley C.</span>
+				</td>
+			</tr>
+																				<tr class="even">
+				<td class="box">
+																								<span class="statusBox" style="background: #338a41; color: #ffffff">Passed</span>
+															</td>
+				<td>
+											<a target="_top" href="https://sandboxvr.testrail.io/index.php?/tests/view/1206/#testChange-316">Voice comms (teamspeak)</a>
+														</td>
+				<td class="right">
+					<span class="secondary">Tested by Ashley C.</span>
+				</td>
+			</tr>
+																				<tr class="odd">
+				<td class="box">
+																								<span class="statusBox" style="background: #338a41; color: #ffffff">Passed</span>
+															</td>
+				<td>
+											<a target="_top" href="https://sandboxvr.testrail.io/index.php?/tests/view/1217/#testChange-315">Game sound output</a>
+														</td>
+				<td class="right">
+					<span class="secondary">Tested by Ashley C.</span>
+				</td>
+			</tr>
+																				<tr class="even">
+				<td class="box">
+																								<span class="statusBox" style="background: #338a41; color: #ffffff">Passed</span>
+															</td>
+				<td>
+											<a target="_top" href="https://sandboxvr.testrail.io/index.php?/tests/view/1216/#testChange-314">Background Music and SFX</a>
+														</td>
+				<td class="right">
+					<span class="secondary">Tested by Ashley C.</span>
+				</td>
+			</tr>
+																				<tr class="odd">
+				<td class="box">
+																								<span class="statusBox" style="background: #338a41; color: #ffffff">Passed</span>
+															</td>
+				<td>
+											<a target="_top" href="https://sandboxvr.testrail.io/index.php?/tests/view/1218/#testChange-313">Oculus</a>
+														</td>
+				<td class="right">
+					<span class="secondary">Tested by Ashley C.</span>
+				</td>
+			</tr>
+																				<tr class="even">
+				<td class="box">
+																								<span class="statusBox" style="background: #338a41; color: #ffffff">Passed</span>
+															</td>
+				<td>
+											<a target="_top" href="https://sandboxvr.testrail.io/index.php?/tests/view/1215/#testChange-312">Haptic vest</a>
+														</td>
+				<td class="right">
+					<span class="secondary">Tested by Ashley C.</span>
+				</td>
+			</tr>
+																				<tr class="odd">
+				<td class="box">
+																								<span class="statusBox" style="background: #338a41; color: #ffffff">Passed</span>
+															</td>
+				<td>
+											<a target="_top" href="https://sandboxvr.testrail.io/index.php?/tests/view/1213/#testChange-311">Props&#039; commands registration in server</a>
+														</td>
+				<td class="right">
+					<span class="secondary">Tested by Ashley C.</span>
+				</td>
+			</tr>
+																				<tr class="even">
+				<td class="box">
+																								<span class="statusBox" style="background: #338a41; color: #ffffff">Passed</span>
+															</td>
+				<td>
+											<a target="_top" href="https://sandboxvr.testrail.io/index.php?/tests/view/1212/#testChange-310">Props mapping</a>
+														</td>
+				<td class="right">
+					<span class="secondary">Tested by Ashley C.</span>
+				</td>
+			</tr>
+																				<tr class="odd">
+				<td class="box">
+																								<span class="statusBox" style="background: #338a41; color: #ffffff">Passed</span>
+															</td>
+				<td>
+											<a target="_top" href="https://sandboxvr.testrail.io/index.php?/tests/view/1225/#testChange-309">Evoke Vicon tracking</a>
+														</td>
+				<td class="right">
+					<span class="secondary">Tested by Ashley C.</span>
+				</td>
+			</tr>
+																				<tr class="even">
+				<td class="box">
+																								<span class="statusBox" style="background: #338a41; color: #ffffff">Passed</span>
+															</td>
+				<td>
+											<a target="_top" href="https://sandboxvr.testrail.io/index.php?/tests/view/1235/#testChange-289">Pause for more than 20 mins</a>
+														</td>
+				<td class="right">
+					<span class="secondary">Tested by Gary L.</span>
+				</td>
+			</tr>
+																				<tr class="odd">
+				<td class="box">
+																								<span class="statusBox" style="background: #338a41; color: #ffffff">Passed</span>
+															</td>
+				<td>
+											<a target="_top" href="https://sandboxvr.testrail.io/index.php?/tests/view/1457/#testChange-288">Score Formula Updates</a>
+														</td>
+				<td class="right">
+					<span class="secondary">Tested by Gary L.</span>
+				</td>
+			</tr>
+																				<tr class="even">
+				<td class="box">
+																								<span class="statusBox" style="background: #b99109; color: #ffffff">Retest</span>
+															</td>
+				<td>
+											<a target="_top" href="https://sandboxvr.testrail.io/index.php?/tests/view/1235/#testChange-285">Pause for more than 20 mins</a>
+														</td>
+				<td class="right">
+					<span class="secondary">Marked by Gary L.</span>
+				</td>
+			</tr>
+																				<tr class="odd">
+				<td class="box">
+											<span class="statusBox defaultBox">Comment</span>
+									</td>
+				<td>
+											<a target="_top" href="https://sandboxvr.testrail.io/index.php?/tests/view/1235/#testChange-273">Pause for more than 20 mins</a>
+														</td>
+				<td class="right">
+					<span class="secondary">Added by Gary L.</span>
+				</td>
+			</tr>
+																				<tr class="even">
+				<td class="box">
+																								<span class="statusBox" style="background: #338a41; color: #ffffff">Passed</span>
+															</td>
+				<td>
+											<a target="_top" href="https://sandboxvr.testrail.io/index.php?/tests/view/1234/#testChange-271">Pause at 23:59, resume after midnight</a>
+														</td>
+				<td class="right">
+					<span class="secondary">Tested by Gary L.</span>
+				</td>
+			</tr>
+			</table>
+		
+	<div class="dateSection" style="">
+		<span class="title">Tuesday, December 03, 2019</span>
+	</div>
+		<table class="grid">
+		<colgroup>
+			<col style="width: 90px"></col>
+			<col></col>
+			<col class="comment"></col>
+		</colgroup>
+																				<tr class="odd">
+				<td class="box">
+																								<span class="statusBox" style="background: #a9093a; color: #ffffff">Failed</span>
+															</td>
+				<td>
+											<a target="_top" href="https://sandboxvr.testrail.io/index.php?/tests/view/1235/#testChange-238">Pause for more than 20 mins</a>
+														</td>
+				<td class="right">
+					<span class="secondary">Tested by Gary L.</span>
+				</td>
+			</tr>
+																				<tr class="even">
+				<td class="box">
+																								<span class="statusBox" style="background: #338a41; color: #ffffff">Passed</span>
+															</td>
+				<td>
+											<a target="_top" href="https://sandboxvr.testrail.io/index.php?/tests/view/1209/#testChange-237">Launch Function</a>
+														</td>
+				<td class="right">
+					<span class="secondary">Tested by Gary L.</span>
+				</td>
+			</tr>
+																				<tr class="odd">
+				<td class="box">
+																								<span class="statusBox" style="background: #338a41; color: #ffffff">Passed</span>
+															</td>
+				<td>
+											<a target="_top" href="https://sandboxvr.testrail.io/index.php?/tests/view/1220/#testChange-236">Normal pause and resume</a>
+														</td>
+				<td class="right">
+					<span class="secondary">Tested by Gary L.</span>
+				</td>
+			</tr>
+			</table>
+		
+	<div class="dateSection" style="">
+		<span class="title">Monday, December 02, 2019</span>
+	</div>
+		<table class="grid">
+		<colgroup>
+			<col style="width: 90px"></col>
+			<col></col>
+			<col class="comment"></col>
+		</colgroup>
+																				<tr class="odd">
+				<td class="box">
+																								<span class="statusBox" style="background: #338a41; color: #ffffff">Passed</span>
+															</td>
+				<td>
+											<a target="_top" href="https://sandboxvr.testrail.io/index.php?/tests/view/1222/#testChange-232">Validation of correct client build version</a>
+														</td>
+				<td class="right">
+					<span class="secondary">Tested by Gary L.</span>
+				</td>
+			</tr>
+																				<tr class="even">
+				<td class="box">
+																								<span class="statusBox" style="background: #338a41; color: #ffffff">Passed</span>
+															</td>
+				<td>
+											<a target="_top" href="https://sandboxvr.testrail.io/index.php?/tests/view/1208/#testChange-231">Validation of correct server build version</a>
+														</td>
+				<td class="right">
+					<span class="secondary">Tested by Gary L.</span>
+				</td>
+			</tr>
+																				<tr class="odd">
+				<td class="box">
+																								<span class="statusBox" style="background: #338a41; color: #ffffff">Passed</span>
+															</td>
+				<td>
+											<a target="_top" href="https://sandboxvr.testrail.io/index.php?/tests/view/1222/#testChange-230">Validation of correct client build version</a>
+														</td>
+				<td class="right">
+					<span class="secondary">Tested by Gary L.</span>
+				</td>
+			</tr>
+																				<tr class="even">
+				<td class="box">
+																								<span class="statusBox" style="background: #338a41; color: #ffffff">Passed</span>
+															</td>
+				<td>
+											<a target="_top" href="https://sandboxvr.testrail.io/index.php?/tests/view/1208/#testChange-229">Validation of correct server build version</a>
+														</td>
+				<td class="right">
+					<span class="secondary">Tested by Gary L.</span>
+				</td>
+			</tr>
+			</table>
+		
+			
+	<h1><img class="right noPrint" src="images/report-assets/help.svg" width="16" height="16" alt="" title="Shows the progress (forecasts and estimates) and burndown chart for the test runs of the test plan." />Progress</h1>
+			<div class="chartContainer" style="height: 230px; width: 925px; margin-bottom: 1em">
+	<div class="chartColumn" style="margin-right: 50px">
+		<div id="burndownChart" style="height: 230px; width: 650px; overflow: hidden">
+		</div>
+	</div>
+	<div class="chartColumn" style="width: 225px">
+		<div class="legendHeader">
+Since 12/2/2019:</div>
+<div>
+	<div class="legendEntry" style="height: auto">
+		<div class="icon">
+			<div style="width: 100%; background: #1B55D3"></div>
+		</div>
+		<div style="margin-left: 35px">
+			<div class="title">Remaining Tests</div>
+													<div class="description">94% of tests completed.</div>
+		</div>
+	</div>
+	<div class="legendEntry" style="height: auto">
+		<div class="icon">
+			<div style="width: 100%; background: #E40046"></div>
+		</div>
+		<div style="margin-left: 35px">
+			<div class="title">Remaining Effort</div>
+											<div class="description">94% of effort completed.</div>
+					</div>
+	</div>
+	<div class="legendEntry" style="height: auto">
+		<div class="icon">
+			<div style="width: 100%; background: #D0D0D0"></div>
+		</div>
+		<div style="margin-left: 35px">
+			<div class="title">Ideal Progress</div>
+							<div class="description">Forecast not available.</div>
+					</div>
+	</div>
+</div>	</div>
+	<div style="clear: both"></div>
+</div>
+
+
+
+
+
+<script type="text/javascript">
+var chart_burndown;
+$(function () {
+	$(document).ready(function() {
+		chart_burndown = new Highcharts.Chart({
+			chart: {
+				renderTo: 'burndownChart',
+				type: 'line',
+				alignTicks: false
+			},
+			xAxis: {
+				gridLineColor: '#d2e2ed',
+				gridLineWidth: 0,
+				lineWidth: 1,
+				lineColor: '#C0C0C0',
+				categories: ["Start","12\/2","12\/3","12\/4","12\/5","12\/6"],
+				labels: {
+										overflow: 'justify'
+				}
+			},
+			yAxis: [{
+				min: 0,
+				title: {
+					text: ''
+				},
+				gridLineWidth: 1,
+				gridLineColor: '#d2e2ed',
+				lineWidth: 1,
+				lineColor: '#C0C0C0',
+				tickPositions: [0,5,10,15,20,25,30,35,36],
+				plotLines: [{
+					value: 0,
+					width: 1,
+					color: '#808080'
+				}],
+				labels: {
+					style: {
+						color: '#1B55D3'
+					}
+				},
+				allowDecimals: false
+			},{
+				min: 0,
+				title: {
+					text: ''
+				},
+				gridLineWidth: 0,
+				lineWidth: 1,
+				lineColor: '#C0C0C0',
+				tickPositions: [0,2,4,6,8,10,12,14,13],
+				opposite: true,
+				labels: {
+					style: {
+						color: '#E3505B'
+					}
+				}
+			}],
+			title: {
+				text: null
+			},
+			legend: {
+				enabled: false	
+			},
+			tooltip: {
+				formatter: function()
+				{
+					var tooltip = '<b>' + this.series.name + '</b><br/>' +
+						this.x + ': ' + this.y;
+
+					if (this.series.index != 0)
+					{
+						if (this.y == 1)
+						{
+							tooltip += ' hour';
+						}
+						else 
+						{
+							tooltip += ' hours';
+						}
+					}
+
+					return tooltip;
+				}
+			},
+			series: [
+																		{
+					name: "Tests",
+					color: '#1B55D3',
+					data: [
+																						{ x: 0, y: 36 }
+												
+																	,
+												{ x: 1, y: 34 }
+												
+																	,
+												{ x: 2, y: 31 }
+												
+																	,
+												{ x: 3, y: 2 }
+												
+																	,
+												{ x: 4, y: 2 }
+												
+																	,
+												{ x: 5, y: 2 }
+												
+										],
+					yAxis: 0					}
+																			,
+										{
+					name: "Forecasts",
+					color: '#E3505B',
+					data: [
+																						{ x: 0, y: 13 }
+												
+																	,
+												{ x: 1, y: 12 }
+												
+																	,
+												{ x: 2, y: 11 }
+												
+																	,
+												{ x: 3, y: 1 }
+												
+																	,
+												{ x: 4, y: 1 }
+												
+																	,
+												{ x: 5, y: 1 }
+												
+										],
+					yAxis: 1					}
+												]
+		});
+	});
+});
+</script>
+		<h2 class="top">Forecasts &amp; Estimates</h2>
+	<div class="statsContainer statsContainerHighlighted">
+	<div class="statsIcon" style="float: left">
+		<img src="images/report-assets/goal.svg" height="32" width="32" alt="" />
+	</div>
+	<div class="statsRight" style="width: 225px">
+					<span class="estimate">Unknown</span><br />
+			<span class="secondary"><em>Forecast not possible</em></span>
+			</div>
+	<div class="statsContent" style="max-width: 450px; margin-right: 240px">
+		<p style="margin: 0">Based on the current activity and forecasts, the projected completion date for this test plan is:</p>
+	</div>
+	<div style="clear: both"></div>
+</div>
+
+<div class="statsContainer">
+	<div class="statsIcon">
+		<img src="images/report-assets/time.svg" height="32" width="32" alt="" />
+	</div>
+	<div class="statsRight" style="width: 225px">
+									<p style="margin: 0">Completed:			94%
+			(34/36)<br />
+					Elapsed:				0h 0m<br />
+				Tests / day: 8<br />
+		Hours / day:					3				</p>
+	</div>
+	<div class="statsContent" style="max-width: 450px; margin-right: 240px">
+				
+		<p style="margin: 0">This test plan was started <strong class="text-softer">4 days ago</strong> (12/2/2019).</p>
+			</div>
+	<div style="clear: both"></div>
+</div>
+
+<div class="statsContainer">
+	<div class="statsIcon">
+		<img src="images/report-assets/stats.svg" height="32" width="32" alt="" />
+	</div>
+	<div class="statsContent">
+		<table class="grid">
+			<colgroup>
+				<col style="width: 33%"></col>
+				<col style="width: 33%"></col>
+				<col style="width: 33%"></col>
+			</colgroup>			
+			<tr class="header noBorder" style="background: #E0E0E0">
+				<th>Metric</th>
+				<th>By Estimate</th>
+				<th>By Forecast</th>
+			</tr>
+			<tr class="noBorder">
+				<td>Completed</td>
+				<td>1h 30m</td>
+				<td>
+									12h 30m								</td>
+			</tr>
+			<tr class="noBorder">
+								<td>Todo</td>
+								<td>0h 20m</td>
+				<td>
+									0h 42m								</td>				
+			</tr>
+			<tr class="noBorder">
+				<td>Total</td>
+				<td>1h 50m<td>
+									13h 12m								</td>
+			</tr>
+		</table>
+	</div>
+	<div style="clear: both"></div>
+</div>
+			<h2>Test Runs</h2>
+		
+								
+		
+
+<table class="grid">
+	<colgroup>
+		<col class="icon"></col>
+		<col></col>
+		<col class="comment"></col>
+	</colgroup>
+			<tr class="odd">
+											<td class="icon ">
+			<img src="images/report-assets/run16.svg"
+				width="16" height="16" alt="" />
+		</td>
+		<td class="">
+							<a target="_top" href="https://sandboxvr.testrail.io/index.php?/runs/progress/23">Experience Test Cases (Generic)</a>
+								</td>
+		<td class="right comment ">
+											<span class="secondary">
+					Forecast for 12/6/2019				</span>
+									</td>
+	</tr>
+			<tr class="even">
+						<td class="icon ">
+			<img src="images/report-assets/run16.svg"
+				width="16" height="16" alt="" />
+		</td>
+		<td class="">
+							<a target="_top" href="https://sandboxvr.testrail.io/index.php?/runs/progress/27">Curse Of Davy Jones (DJ)</a>
+								</td>
+		<td class="right comment ">
+											<span class="secondary">
+					Forecast n/a				</span>
+									</td>
+	</tr>
+	</table>
+	
+			<h1><img class="right noPrint" src="images/report-assets/help.svg" width="16" height="16" alt="" title="Shows the tests and their current statuses for the test runs of the test plan." />Tests &amp; Results</h1>
+											<h2>
+				Experience Test Cases (Generic)							</h2>
+			
+		<h3><span class="chapter">1.</span>
+	Hardware	<span class="secondary">(7)</span>
+	</h3>
+				<table class="grid">
+	<colgroup>
+					<col style="width: 75px"></col>
+					<col></col>
+		<col style="width: 125px"></col>	</colgroup>
+	<tr class="header">
+					<th>ID</th>
+				<th>Title</th>
+	<th>Status</th>	</tr>
+											<tr class="odd">
+								<td class="id">
+							<a target="_top" href="https://sandboxvr.testrail.io/index.php?/tests/view/1224">T1224</a>
+					</td>
+					<td>
+					<a target="_top" href="https://sandboxvr.testrail.io/index.php?/tests/view/1224">Optitrack tracking</a>
+				</td>
+		<td><span class="statusBox" style="background: #737373; color: #ffffff">Untested</span></td>
+			</tr>
+													<tr class="even">
+								<td class="id">
+							<a target="_top" href="https://sandboxvr.testrail.io/index.php?/tests/view/1225">T1225</a>
+					</td>
+					<td>
+					<a target="_top" href="https://sandboxvr.testrail.io/index.php?/tests/view/1225">Evoke Vicon tracking</a>
+				</td>
+		<td><span class="statusBox" style="background: #338a41; color: #ffffff">Passed</span></td>
+			</tr>
+													<tr class="odd">
+								<td class="id">
+							<a target="_top" href="https://sandboxvr.testrail.io/index.php?/tests/view/1221">T1221</a>
+					</td>
+					<td>
+					<a target="_top" href="https://sandboxvr.testrail.io/index.php?/tests/view/1221">Leap motion (if experience supports)</a>
+				</td>
+		<td><span class="statusBox" style="background: #737373; color: #ffffff">Untested</span></td>
+			</tr>
+													<tr class="even">
+								<td class="id">
+							<a target="_top" href="https://sandboxvr.testrail.io/index.php?/tests/view/1212">T1212</a>
+					</td>
+					<td>
+					<a target="_top" href="https://sandboxvr.testrail.io/index.php?/tests/view/1212">Props mapping</a>
+				</td>
+		<td><span class="statusBox" style="background: #338a41; color: #ffffff">Passed</span></td>
+			</tr>
+													<tr class="odd">
+								<td class="id">
+							<a target="_top" href="https://sandboxvr.testrail.io/index.php?/tests/view/1213">T1213</a>
+					</td>
+					<td>
+					<a target="_top" href="https://sandboxvr.testrail.io/index.php?/tests/view/1213">Props&#039; commands registration in server</a>
+				</td>
+		<td><span class="statusBox" style="background: #338a41; color: #ffffff">Passed</span></td>
+			</tr>
+													<tr class="even">
+								<td class="id">
+							<a target="_top" href="https://sandboxvr.testrail.io/index.php?/tests/view/1215">T1215</a>
+					</td>
+					<td>
+					<a target="_top" href="https://sandboxvr.testrail.io/index.php?/tests/view/1215">Haptic vest</a>
+				</td>
+		<td><span class="statusBox" style="background: #338a41; color: #ffffff">Passed</span></td>
+			</tr>
+													<tr class="odd">
+								<td class="id">
+							<a target="_top" href="https://sandboxvr.testrail.io/index.php?/tests/view/1218">T1218</a>
+					</td>
+					<td>
+					<a target="_top" href="https://sandboxvr.testrail.io/index.php?/tests/view/1218">Oculus</a>
+				</td>
+		<td><span class="statusBox" style="background: #338a41; color: #ffffff">Passed</span></td>
+			</tr>
+			</table>					<h3><span class="chapter">2.</span>
+	Platform	<span class="secondary">(3)</span>
+	</h3>
+				<table class="grid">
+	<colgroup>
+					<col style="width: 75px"></col>
+					<col></col>
+		<col style="width: 125px"></col>	</colgroup>
+	<tr class="header">
+					<th>ID</th>
+				<th>Title</th>
+	<th>Status</th>	</tr>
+											<tr class="odd">
+								<td class="id">
+							<a target="_top" href="https://sandboxvr.testrail.io/index.php?/tests/view/1216">T1216</a>
+					</td>
+					<td>
+					<a target="_top" href="https://sandboxvr.testrail.io/index.php?/tests/view/1216">Background Music and SFX</a>
+				</td>
+		<td><span class="statusBox" style="background: #338a41; color: #ffffff">Passed</span></td>
+			</tr>
+													<tr class="even">
+								<td class="id">
+							<a target="_top" href="https://sandboxvr.testrail.io/index.php?/tests/view/1217">T1217</a>
+					</td>
+					<td>
+					<a target="_top" href="https://sandboxvr.testrail.io/index.php?/tests/view/1217">Game sound output</a>
+				</td>
+		<td><span class="statusBox" style="background: #338a41; color: #ffffff">Passed</span></td>
+			</tr>
+													<tr class="odd">
+								<td class="id">
+							<a target="_top" href="https://sandboxvr.testrail.io/index.php?/tests/view/1206">T1206</a>
+					</td>
+					<td>
+					<a target="_top" href="https://sandboxvr.testrail.io/index.php?/tests/view/1206">Voice comms (teamspeak)</a>
+				</td>
+		<td><span class="statusBox" style="background: #338a41; color: #ffffff">Passed</span></td>
+			</tr>
+			</table>					<h3><span class="chapter">3.</span>
+	General	<span class="secondary">(6)</span>
+	</h3>
+				<table class="grid">
+	<colgroup>
+					<col style="width: 75px"></col>
+					<col></col>
+		<col style="width: 125px"></col>	</colgroup>
+	<tr class="header">
+					<th>ID</th>
+				<th>Title</th>
+	<th>Status</th>	</tr>
+											<tr class="odd">
+								<td class="id">
+							<a target="_top" href="https://sandboxvr.testrail.io/index.php?/tests/view/1208">T1208</a>
+					</td>
+					<td>
+					<a target="_top" href="https://sandboxvr.testrail.io/index.php?/tests/view/1208">Validation of correct server build version</a>
+				</td>
+		<td><span class="statusBox" style="background: #338a41; color: #ffffff">Passed</span></td>
+			</tr>
+													<tr class="even">
+								<td class="id">
+							<a target="_top" href="https://sandboxvr.testrail.io/index.php?/tests/view/1222">T1222</a>
+					</td>
+					<td>
+					<a target="_top" href="https://sandboxvr.testrail.io/index.php?/tests/view/1222">Validation of correct client build version</a>
+				</td>
+		<td><span class="statusBox" style="background: #338a41; color: #ffffff">Passed</span></td>
+			</tr>
+													<tr class="odd">
+								<td class="id">
+							<a target="_top" href="https://sandboxvr.testrail.io/index.php?/tests/view/1209">T1209</a>
+					</td>
+					<td>
+					<a target="_top" href="https://sandboxvr.testrail.io/index.php?/tests/view/1209">Launch Function</a>
+				</td>
+		<td><span class="statusBox" style="background: #338a41; color: #ffffff">Passed</span></td>
+			</tr>
+													<tr class="even">
+								<td class="id">
+							<a target="_top" href="https://sandboxvr.testrail.io/index.php?/tests/view/1203">T1203</a>
+					</td>
+					<td>
+					<a target="_top" href="https://sandboxvr.testrail.io/index.php?/tests/view/1203">Performance Measurement</a>
+				</td>
+		<td><span class="statusBox" style="background: #338a41; color: #ffffff">Passed</span></td>
+			</tr>
+													<tr class="odd">
+								<td class="id">
+							<a target="_top" href="https://sandboxvr.testrail.io/index.php?/tests/view/1226">T1226</a>
+					</td>
+					<td>
+					<a target="_top" href="https://sandboxvr.testrail.io/index.php?/tests/view/1226">Game time mechanics</a>
+				</td>
+		<td><span class="statusBox" style="background: #338a41; color: #ffffff">Passed</span></td>
+			</tr>
+													<tr class="even">
+								<td class="id">
+							<a target="_top" href="https://sandboxvr.testrail.io/index.php?/tests/view/1207">T1207</a>
+					</td>
+					<td>
+					<a target="_top" href="https://sandboxvr.testrail.io/index.php?/tests/view/1207">Player comfort level</a>
+				</td>
+		<td><span class="statusBox" style="background: #338a41; color: #ffffff">Passed</span></td>
+			</tr>
+			</table>					<h3><span class="chapter">4.</span>
+	Game Mechanics	<span class="secondary">(11)</span>
+	</h3>
+				<table class="grid">
+	<colgroup>
+					<col style="width: 75px"></col>
+					<col></col>
+		<col style="width: 125px"></col>	</colgroup>
+	<tr class="header">
+					<th>ID</th>
+				<th>Title</th>
+	<th>Status</th>	</tr>
+											<tr class="odd">
+								<td class="id">
+							<a target="_top" href="https://sandboxvr.testrail.io/index.php?/tests/view/1205">T1205</a>
+					</td>
+					<td>
+					<a target="_top" href="https://sandboxvr.testrail.io/index.php?/tests/view/1205">Players dropping out / dummy players</a>
+				</td>
+		<td><span class="statusBox" style="background: #338a41; color: #ffffff">Passed</span></td>
+			</tr>
+													<tr class="even">
+								<td class="id">
+							<a target="_top" href="https://sandboxvr.testrail.io/index.php?/tests/view/1219">T1219</a>
+					</td>
+					<td>
+					<a target="_top" href="https://sandboxvr.testrail.io/index.php?/tests/view/1219">User Interface</a>
+				</td>
+		<td><span class="statusBox" style="background: #338a41; color: #ffffff">Passed</span></td>
+			</tr>
+													<tr class="odd">
+								<td class="id">
+							<a target="_top" href="https://sandboxvr.testrail.io/index.php?/tests/view/1223">T1223</a>
+					</td>
+					<td>
+					<a target="_top" href="https://sandboxvr.testrail.io/index.php?/tests/view/1223">Localization</a>
+				</td>
+		<td><span class="statusBox" style="background: #338a41; color: #ffffff">Passed</span></td>
+			</tr>
+													<tr class="even">
+								<td class="id">
+							<a target="_top" href="https://sandboxvr.testrail.io/index.php?/tests/view/1211">T1211</a>
+					</td>
+					<td>
+					<a target="_top" href="https://sandboxvr.testrail.io/index.php?/tests/view/1211">Play area boundary</a>
+				</td>
+		<td><span class="statusBox" style="background: #338a41; color: #ffffff">Passed</span></td>
+			</tr>
+													<tr class="odd">
+								<td class="id">
+							<a target="_top" href="https://sandboxvr.testrail.io/index.php?/tests/view/1214">T1214</a>
+					</td>
+					<td>
+					<a target="_top" href="https://sandboxvr.testrail.io/index.php?/tests/view/1214">Timeout failsafe</a>
+				</td>
+		<td><span class="statusBox" style="background: #338a41; color: #ffffff">Passed</span></td>
+			</tr>
+													<tr class="even">
+								<td class="id">
+							<a target="_top" href="https://sandboxvr.testrail.io/index.php?/tests/view/1227">T1227</a>
+					</td>
+					<td>
+					<a target="_top" href="https://sandboxvr.testrail.io/index.php?/tests/view/1227">Score</a>
+				</td>
+		<td><span class="statusBox" style="background: #338a41; color: #ffffff">Passed</span></td>
+			</tr>
+													<tr class="odd">
+								<td class="id">
+							<a target="_top" href="https://sandboxvr.testrail.io/index.php?/tests/view/1228">T1228</a>
+					</td>
+					<td>
+					<a target="_top" href="https://sandboxvr.testrail.io/index.php?/tests/view/1228">Levels</a>
+				</td>
+		<td><span class="statusBox" style="background: #338a41; color: #ffffff">Passed</span></td>
+			</tr>
+													<tr class="even">
+								<td class="id">
+							<a target="_top" href="https://sandboxvr.testrail.io/index.php?/tests/view/1229">T1229</a>
+					</td>
+					<td>
+					<a target="_top" href="https://sandboxvr.testrail.io/index.php?/tests/view/1229">Graphics</a>
+				</td>
+		<td><span class="statusBox" style="background: #338a41; color: #ffffff">Passed</span></td>
+			</tr>
+													<tr class="odd">
+								<td class="id">
+							<a target="_top" href="https://sandboxvr.testrail.io/index.php?/tests/view/1232">T1232</a>
+					</td>
+					<td>
+					<a target="_top" href="https://sandboxvr.testrail.io/index.php?/tests/view/1232">Overall UI clarity</a>
+				</td>
+		<td><span class="statusBox" style="background: #338a41; color: #ffffff">Passed</span></td>
+			</tr>
+													<tr class="even">
+								<td class="id">
+							<a target="_top" href="https://sandboxvr.testrail.io/index.php?/tests/view/1230">T1230</a>
+					</td>
+					<td>
+					<a target="_top" href="https://sandboxvr.testrail.io/index.php?/tests/view/1230">Hot Keys Function</a>
+				</td>
+		<td><span class="statusBox" style="background: #338a41; color: #ffffff">Passed</span></td>
+			</tr>
+													<tr class="odd">
+								<td class="id">
+							<a target="_top" href="https://sandboxvr.testrail.io/index.php?/tests/view/1231">T1231</a>
+					</td>
+					<td>
+					<a target="_top" href="https://sandboxvr.testrail.io/index.php?/tests/view/1231">Animation</a>
+				</td>
+		<td><span class="statusBox" style="background: #338a41; color: #ffffff">Passed</span></td>
+			</tr>
+			</table>					<h3><span class="chapter">5.</span>
+	DGE Video	<span class="secondary">(2)</span>
+	</h3>
+				<table class="grid">
+	<colgroup>
+					<col style="width: 75px"></col>
+					<col></col>
+		<col style="width: 125px"></col>	</colgroup>
+	<tr class="header">
+					<th>ID</th>
+				<th>Title</th>
+	<th>Status</th>	</tr>
+											<tr class="odd">
+								<td class="id">
+							<a target="_top" href="https://sandboxvr.testrail.io/index.php?/tests/view/1204">T1204</a>
+					</td>
+					<td>
+					<a target="_top" href="https://sandboxvr.testrail.io/index.php?/tests/view/1204">DGE Video Capture</a>
+				</td>
+		<td><span class="statusBox" style="background: #338a41; color: #ffffff">Passed</span></td>
+			</tr>
+													<tr class="even">
+								<td class="id">
+							<a target="_top" href="https://sandboxvr.testrail.io/index.php?/tests/view/1210">T1210</a>
+					</td>
+					<td>
+					<a target="_top" href="https://sandboxvr.testrail.io/index.php?/tests/view/1210">Backup clips</a>
+				</td>
+		<td><span class="statusBox" style="background: #338a41; color: #ffffff">Passed</span></td>
+			</tr>
+			</table>					<h3><span class="chapter">6.</span>
+	Pause Mechanics	<span class="secondary">(3)</span>
+	</h3>
+				<table class="grid">
+	<colgroup>
+					<col style="width: 75px"></col>
+					<col></col>
+		<col style="width: 125px"></col>	</colgroup>
+	<tr class="header">
+					<th>ID</th>
+				<th>Title</th>
+	<th>Status</th>	</tr>
+											<tr class="odd">
+								<td class="id">
+							<a target="_top" href="https://sandboxvr.testrail.io/index.php?/tests/view/1220">T1220</a>
+					</td>
+					<td>
+					<a target="_top" href="https://sandboxvr.testrail.io/index.php?/tests/view/1220">Normal pause and resume</a>
+				</td>
+		<td><span class="statusBox" style="background: #338a41; color: #ffffff">Passed</span></td>
+			</tr>
+													<tr class="even">
+								<td class="id">
+							<a target="_top" href="https://sandboxvr.testrail.io/index.php?/tests/view/1234">T1234</a>
+					</td>
+					<td>
+					<a target="_top" href="https://sandboxvr.testrail.io/index.php?/tests/view/1234">Pause at 23:59, resume after midnight</a>
+				</td>
+		<td><span class="statusBox" style="background: #338a41; color: #ffffff">Passed</span></td>
+			</tr>
+													<tr class="odd">
+								<td class="id">
+							<a target="_top" href="https://sandboxvr.testrail.io/index.php?/tests/view/1235">T1235</a>
+					</td>
+					<td>
+					<a target="_top" href="https://sandboxvr.testrail.io/index.php?/tests/view/1235">Pause for more than 20 mins</a>
+				</td>
+		<td><span class="statusBox" style="background: #338a41; color: #ffffff">Passed</span></td>
+			</tr>
+			</table>					<h3><span class="chapter">7.</span>
+	GloPlatform	<span class="secondary">(0)</span>
+	</h3>
+					<div class="gridContainer">
+				<h3><span class="chapter">7.1.</span>
+	v2.1.10 (#123 to #132)	<span class="secondary">(3)</span>
+	</h3>
+				<table class="grid">
+	<colgroup>
+					<col style="width: 75px"></col>
+					<col></col>
+		<col style="width: 125px"></col>	</colgroup>
+	<tr class="header">
+					<th>ID</th>
+				<th>Title</th>
+	<th>Status</th>	</tr>
+											<tr class="odd">
+								<td class="id">
+							<a target="_top" href="https://sandboxvr.testrail.io/index.php?/tests/view/1236">T1236</a>
+					</td>
+					<td>
+					<a target="_top" href="https://sandboxvr.testrail.io/index.php?/tests/view/1236">Replace GloInputDirectInput with SandboxControllerInput for &quot;DirectInput&quot; type (#124)</a>
+				</td>
+		<td><span class="statusBox" style="background: #338a41; color: #ffffff">Passed</span></td>
+			</tr>
+													<tr class="even">
+								<td class="id">
+							<a target="_top" href="https://sandboxvr.testrail.io/index.php?/tests/view/1237">T1237</a>
+					</td>
+					<td>
+					<a target="_top" href="https://sandboxvr.testrail.io/index.php?/tests/view/1237">HandAttach rotation fix (#125)</a>
+				</td>
+		<td><span class="statusBox" style="background: #338a41; color: #ffffff">Passed</span></td>
+			</tr>
+													<tr class="odd">
+								<td class="id">
+							<a target="_top" href="https://sandboxvr.testrail.io/index.php?/tests/view/1238">T1238</a>
+					</td>
+					<td>
+					<a target="_top" href="https://sandboxvr.testrail.io/index.php?/tests/view/1238">Improve props snap logic when hand lost tracking (#129)</a>
+				</td>
+		<td><span class="statusBox" style="background: #338a41; color: #ffffff">Passed</span></td>
+			</tr>
+			</table>					</div>
+																													<h2>
+				Curse Of Davy Jones (DJ)							</h2>
+			
+		<h3><span class="chapter">1.</span>
+	v4.7.0rc1 Updates	<span class="secondary">(1)</span>
+	</h3>
+				<table class="grid">
+	<colgroup>
+					<col style="width: 75px"></col>
+					<col></col>
+		<col style="width: 125px"></col>	</colgroup>
+	<tr class="header">
+					<th>ID</th>
+				<th>Title</th>
+	<th>Status</th>	</tr>
+											<tr class="odd">
+								<td class="id">
+							<a target="_top" href="https://sandboxvr.testrail.io/index.php?/tests/view/1457">T1457</a>
+					</td>
+					<td>
+					<a target="_top" href="https://sandboxvr.testrail.io/index.php?/tests/view/1457">Score Formula Updates</a>
+				</td>
+		<td><span class="statusBox" style="background: #338a41; color: #ffffff">Passed</span></td>
+			</tr>
+			</table>																						
+<div id="footer">
+	<p class="comment bottom">Generated with TestRail <a target="_top" href="http://www.gurock.com/testrail/">test management</a> software &ndash; 6.1.0.4369<br />
+		Report: Plan (Summary), by Gurock Software (Version 1)</p>
+</div>
+
+<!--
+{
+	"plans_id":22,
+	"activities_daterange":"5",
+	"activities_daterange_from":null,
+	"activities_daterange_to":null,
+	"activities_statuses_include":"1",
+	"activities_statuses_ids":null,
+	"activities_limit":100,
+	"tests_filters":null,
+	"tests_columns":{
+	"tests:id":75,
+	"cases:title":0
+},
+	"tests_limit":100,
+	"content_hide_links":false,
+	"status_include":true,
+	"activities_include":true,
+	"progress_include":true,
+	"tests_include":true
+}-->
+<!--
+{
+	"name":"Plan (Summary) %date%",
+	"description":null,
+	"access":"1",
+	"schedule_now":true,
+	"schedule_on_demand_via_api":false,
+	"schedule_later":false,
+	"schedule_interval":"1",
+	"schedule_weekday":1,
+	"schedule_day":1,
+	"schedule_hour":8,
+	"notify_user":false,
+	"notify_link":false,
+	"notify_link_recipients":null,
+	"notify_attachment":false,
+	"notify_attachment_recipients":"person1@example.com\r\nperson2@example.com",
+	"notify_attachment_html_format":false,
+	"notify_attachment_pdf_format":false
+}-->
+
+</div>
+
+
+<script type="text/javascript">
+$(document).ready(function()
+{
+	if (parent && parent.showReport)
+	{
+		parent.showReport();
+	}
+});
+</script>
+
+</body>
+</html>
